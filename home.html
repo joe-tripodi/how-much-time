@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wait, how much time?</title>
+  <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>How mcuh time?</h1>
+  <div>
+    <p>This humble calculator is used to show how much time you will spend in your remaining lifetime on something.</p>
+    <p>Inspiried by the 10,000 hour rule.</p>
+  </div>
+  <form hx-post="/calculate" hx-target="#result">
+    <label for="activity">Activity:</label>
+    <input required id="activity" name="activity"></input>
+
+    <label for="duration">Minutes per day:</label>
+    <input required id="duration" name="duration" type="number" min="0"></input>
+
+    <label for="age">Age:</label>
+    <input required id="age" name="age" type="number"></input>
+
+    <button>Do the math!</button>
+  </form>
+  <div id="result"></div>
+</body>
+</html>
+
+<style>
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 40ch;
+}
+div p{
+  max-width: 70ch;
+}
+</style>
